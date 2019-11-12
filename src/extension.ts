@@ -94,6 +94,12 @@ export function activate(): void {
                 endpoint,
                 sourcegraph
             )
+
+            if (commitCoverage === null) {
+                console.log('No Codecov coverage found')
+                return
+            }
+
             context['codecov.commitCoverage'] = commitCoverage
                 ? commitCoverage.toFixed(1)
                 : null
